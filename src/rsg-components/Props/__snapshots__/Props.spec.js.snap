@@ -614,18 +614,18 @@ exports[`props columns should render PropTypes.shape with formatted defaultProps
     >
       <Styled(Text)
         title="{
-  bar: 123,
-  baz: baz() {
-          return 'foo';
-      },
-  bing: bing() {
-          return 'badaboom';
-      },
-  trotskij: () => 1935,
-  qwarc: {
-    si: 'señor'
-  }
-}"
+        bar: 123,
+        baz: baz() {
+                return 'foo';
+            },
+        bing: bing() {
+                return 'badaboom';
+            },
+        trotskij: () => 1935,
+        qwarc: {
+          si: 'señor'
+        }
+      }"
         underlined={true}
       >
         Shape
