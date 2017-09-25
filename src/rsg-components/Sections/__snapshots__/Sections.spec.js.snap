@@ -4,7 +4,6 @@ exports[`render should render component 1`] = `
 <section>
   <Section
     depth={3}
-    key="0"
     section={
       Object {
         "components": Array [],
@@ -21,7 +20,6 @@ exports[`render should render component 1`] = `
   />
   <Section
     depth={3}
-    key="1"
     section={
       Object {
         "components": Array [],
@@ -37,7 +35,6 @@ exports[`render should render component 1`] = `
   />
   <Section
     depth={3}
-    key="2"
     section={
       Object {
         "sections": Array [
@@ -66,7 +63,6 @@ exports[`render should render styled component 1`] = `
 >
   <Section
     depth={3}
-    key="0"
     section={
       Object {
         "components": Array [],
@@ -83,7 +79,6 @@ exports[`render should render styled component 1`] = `
   />
   <Section
     depth={3}
-    key="1"
     section={
       Object {
         "components": Array [],
@@ -99,7 +94,6 @@ exports[`render should render styled component 1`] = `
   />
   <Section
     depth={3}
-    key="2"
     section={
       Object {
         "sections": Array [
@@ -122,7 +116,6 @@ exports[`should render component renderer 1`] = `
 <Styled(Sections)>
   <Section
     depth={3}
-    key="0"
     section={
       Object {
         "components": Array [],
@@ -139,7 +132,6 @@ exports[`should render component renderer 1`] = `
   />
   <Section
     depth={3}
-    key="1"
     section={
       Object {
         "components": Array [],
@@ -155,7 +147,6 @@ exports[`should render component renderer 1`] = `
   />
   <Section
     depth={3}
-    key="2"
     section={
       Object {
         "sections": Array [

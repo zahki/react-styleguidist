@@ -6,7 +6,6 @@ exports[`renderer should render arguments 1`] = `
 >
   <Styled(Argument)
     description="Converts foo to bar"
-    key="Foo"
     name="Foo"
     type={
       Object {
@@ -15,7 +14,6 @@ exports[`renderer should render arguments 1`] = `
     }
   />
   <Styled(Argument)
-    key="Foo"
     name="Foo"
   />
 </div>
@@ -31,7 +29,6 @@ exports[`renderer should render heading 1`] = `
     Arguments
   </h5>
   <Styled(Argument)
-    key="Foo"
     name="Foo"
   />
 </div>
