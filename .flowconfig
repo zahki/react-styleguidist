@@ -1,0 +1,17 @@
+[include]
+packages/.*/src/.*
+
+[ignore]
+.*/node_modules/.*
+
+[libs]
+
+[lints]
+
+[options]
+# https://github.com/facebook/flow/issues/3143
+sharedmemory.hash_table_pow=21
+
+module.name_mapper='^rsg-components/\(.*\)$' -> '<PROJECT_ROOT>/packages/react-styleguidist/src/rsg-components/\1'
+
+[strict]

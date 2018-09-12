@@ -136,6 +136,7 @@
     "start:sections": "node packages/react-styleguidist/lib/bin/styleguidist.js server --config examples/sections/styleguide.config.js",
     "start:ui": "node packages/react-styleguidist/lib/bin/styleguidist.js server",
     "lint": "eslint . --cache --fix",
+    "lerna": "lerna",
     "flow": "flow",
     "compile": "babel --delete-dir-on-start --ignore '**/*.spec.js','**/__*__/*' -d packages/react-styleguidist/lib/ packages/react-styleguidist/src/",
     "compile:watch": "npm run compile -- --watch",

@@ -124,7 +124,6 @@
     "jest-serializer-html": "^5.0.0",
     "keymirror": "^0.1.1",
     "lerna": "^3.3.1",
-    "lint-staged": "^8.0.0-beta.0",
     "prettier": "1.14.2",
     "raf": "^3.4.0",
     "react": "^16.4.1",
@@ -137,18 +136,10 @@
     "webpack-cli": "^2.0.13"
   },
   "scripts": {
-    "pretest": "npm run lint",
-    "test": "npm run test:jest",
-    "posttest": "npm run format",
-    "test:jest": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
     "start": "node lib/bin/styleguidist.js server --config examples/basic/styleguide.config.js",
     "start:customised": "node lib/bin/styleguidist.js server --config examples/customised/styleguide.config.js",
     "start:sections": "node lib/bin/styleguidist.js server --config examples/sections/styleguide.config.js",
     "start:ui": "node lib/bin/styleguidist.js server",
-    "lint": "eslint . --cache --fix",
-    "flow": "flow",
     "compile": "babel --delete-dir-on-start --ignore '**/*.spec.js','**/__*__/*' -d lib/ src/",
     "compile:watch": "npm run compile -- --watch",
     "prepublishOnly": "npm run compile",
@@ -159,7 +150,6 @@
     "test:browser:basic": "node test/browser.js examples/basic/styleguide/index.html",
     "test:browser:customised": "node test/browser.js examples/customised/styleguide/index.html",
     "test:browser:sections": "node test/browser.js examples/sections/styleguide/index.html",
-    "precommit": "lint-staged",
     "format": "prettier --write '**/*.{js,md,css}'",
     "postinstall": "node -e \"console.log('\\u001b[32mLove Styleguidist? Support us on the Open Collective:\\u001b[22m\\u001b[39m\\n > \\u001b[96m\\u001b[1mhttps://opencollective.com/styleguidist\\u001b[0m\\n')\" || exit 0",
     "test:cypress:pre": "npm i --no-save cypress@3.0.2 wait-on",
@@ -167,30 +157,6 @@
     "test:cypress:run": "cypress run",
     "test:cypress:startServer": "node test/run.server.js",
     "test:cypress:startServer:post": "wait-on http://localhost:8082"
-  },
-  "jest": {
-    "testURL": "http://localhost/",
-    "setupFiles": [
-      "./test/raf-polyfill.js",
-      "./test/jestsetup.js"
-    ],
-    "modulePaths": [
-      "./src/client"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/lib/",
-      "<rootDir>/examples/",
-      "<rootDir>/test/"
-    ],
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/src/scripts/server.js",
-      "<rootDir>/src/scripts/build.js"
-    ],
-    "snapshotSerializers": [
-      "deabsdeep/serializer",
-      "enzyme-to-json/serializer",
-      "jest-serializer-html"
-    ]
   },
   "keywords": [
     "react",
@@ -202,20 +168,5 @@
     "generator",
     "component",
     "components"
-  ],
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "*.css": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.md": [
-      "prettier --write",
-      "git add"
-    ]
-  }
+  ]
 }
