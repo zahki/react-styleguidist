@@ -11,7 +11,7 @@ Array [
     },
     "pathLine": "../Foo.js",
     "props": Object {
-      "require": "!!~/src/loaders/props-loader.js!Foo.js",
+      "require": "!!~/packages/react-styleguidist/src/loaders/props-loader.js!Foo.js",
     },
     "slug": "foo",
   },
@@ -24,7 +24,7 @@ Array [
     },
     "pathLine": "../Bar.js",
     "props": Object {
-      "require": "!!~/src/loaders/props-loader.js!Bar.js",
+      "require": "!!~/packages/react-styleguidist/src/loaders/props-loader.js!Bar.js",
     },
     "slug": "bar",
   },

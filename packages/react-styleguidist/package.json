@@ -1,6 +1,5 @@
 {
   "name": "react-styleguidist",
-  "private": true,
   "description": "React components style guide generator",
   "version": "0.0.0-development",
   "homepage": "https://github.com/styleguidist/react-styleguidist",
@@ -14,6 +13,19 @@
   },
   "bugs": {
     "url": "https://github.com/styleguidist/react-styleguidist/issues"
+  },
+  "license": "MIT",
+  "main": "scripts/index.js",
+  "bin": {
+    "styleguidist": "lib/bin/styleguidist.js"
+  },
+  "files": [
+    "lib",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
   },
   "dependencies": {
     "@vxna/mini-html-webpack-template": "^0.1.7",
@@ -131,25 +143,25 @@
     "test:jest": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "start": "node packages/react-styleguidist/lib/bin/styleguidist.js server --config examples/basic/styleguide.config.js",
-    "start:customised": "node packages/react-styleguidist/lib/bin/styleguidist.js server --config examples/customised/styleguide.config.js",
-    "start:sections": "node packages/react-styleguidist/lib/bin/styleguidist.js server --config examples/sections/styleguide.config.js",
-    "start:ui": "node packages/react-styleguidist/lib/bin/styleguidist.js server",
+    "start": "node lib/bin/styleguidist.js server --config examples/basic/styleguide.config.js",
+    "start:customised": "node lib/bin/styleguidist.js server --config examples/customised/styleguide.config.js",
+    "start:sections": "node lib/bin/styleguidist.js server --config examples/sections/styleguide.config.js",
+    "start:ui": "node lib/bin/styleguidist.js server",
     "lint": "eslint . --cache --fix",
     "flow": "flow",
-    "compile": "babel --delete-dir-on-start --ignore '**/*.spec.js','**/__*__/*' -d packages/react-styleguidist/lib/ packages/react-styleguidist/src/",
+    "compile": "babel --delete-dir-on-start --ignore '**/*.spec.js','**/__*__/*' -d lib/ src/",
     "compile:watch": "npm run compile -- --watch",
     "prepublishOnly": "npm run compile",
-    "build:basic": "node packages/react-styleguidist/lib/bin/styleguidist.js build --config examples/basic/styleguide.config.js",
-    "build:customised": "node packages/react-styleguidist/lib/bin/styleguidist.js build --config examples/customised/styleguide.config.js",
-    "build:sections": "node packages/react-styleguidist/lib/bin/styleguidist.js build --config examples/sections/styleguide.config.js",
+    "build:basic": "node lib/bin/styleguidist.js build --config examples/basic/styleguide.config.js",
+    "build:customised": "node lib/bin/styleguidist.js build --config examples/customised/styleguide.config.js",
+    "build:sections": "node lib/bin/styleguidist.js build --config examples/sections/styleguide.config.js",
     "test:browser:pre": "npm i --no-save puppeteer",
     "test:browser:basic": "node test/browser.js examples/basic/styleguide/index.html",
     "test:browser:customised": "node test/browser.js examples/customised/styleguide/index.html",
     "test:browser:sections": "node test/browser.js examples/sections/styleguide/index.html",
     "precommit": "lint-staged",
     "format": "prettier --write '**/*.{js,md,css}'",
-    "postinstall": "lerna bootstrap --hoist && node -e \"console.log('\\u001b[32mLove Styleguidist? Support us on the Open Collective:\\u001b[22m\\u001b[39m\\n > \\u001b[96m\\u001b[1mhttps://opencollective.com/styleguidist\\u001b[0m\\n')\" || exit 0",
+    "postinstall": "node -e \"console.log('\\u001b[32mLove Styleguidist? Support us on the Open Collective:\\u001b[22m\\u001b[39m\\n > \\u001b[96m\\u001b[1mhttps://opencollective.com/styleguidist\\u001b[0m\\n')\" || exit 0",
     "test:cypress:pre": "npm i --no-save cypress@3.0.2 wait-on",
     "test:cypress:open": "cypress open",
     "test:cypress:run": "cypress run",
@@ -163,16 +175,16 @@
       "./test/jestsetup.js"
     ],
     "modulePaths": [
-      "./packages/react-styleguidist/src/client"
+      "./src/client"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>/packages/react-styleguidist/lib/",
+      "<rootDir>/lib/",
       "<rootDir>/examples/",
       "<rootDir>/test/"
     ],
     "coveragePathIgnorePatterns": [
-      "<rootDir>/packages/react-styleguidist/src/scripts/server.js",
-      "<rootDir>/packages/react-styleguidist/src/scripts/build.js"
+      "<rootDir>/src/scripts/server.js",
+      "<rootDir>/src/scripts/build.js"
     ],
     "snapshotSerializers": [
       "deabsdeep/serializer",
