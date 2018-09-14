@@ -34,7 +34,7 @@
     "@babel/preset-react": "^7.0.0-beta.56",
     "babel-loader": "^8.0.0-beta.4",
     "css-loader": "^0.28.11",
-    "react-styleguidist": "^6.5.0",
+    "react-styleguidist": "*",
     "style-loader": "^0.20.3",
     "url-loader": "^0.6.2",
     "webpack": "^3.0.0"

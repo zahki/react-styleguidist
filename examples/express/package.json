@@ -7,6 +7,7 @@
     "name": "Artem Sapegin",
     "url": "http://sapegin.me/"
   },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git://github.com/styleguidist/react-styleguidist.git"
@@ -29,7 +30,7 @@
     "babel-loader": "^8.0.0-beta.4",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
-    "react-styleguidist": "^6.5.3",
+    "react-styleguidist": "*",
     "style-loader": "^0.20.3",
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1"

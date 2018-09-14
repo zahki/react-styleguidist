@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "react-scripts": "^1.1.1",
-    "react-styleguidist": "^6.5.3",
+    "react-styleguidist": "*",
     "webpack": "^2.6.0"
   },
   "dependencies": {

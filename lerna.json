@@ -2,7 +2,8 @@
     "lerna": "3.3.0",
     "loglevel": "info",
     "packages": [
-      "packages/*"
+      "packages/*",
+      "examples/*"
     ],
     "version": "8.0.0"
 }
