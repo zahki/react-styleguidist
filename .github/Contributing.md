@@ -1,8 +1,8 @@
 # How to contribute
 
-We love pull requests. And following this guidelines will make your pull request easier to merge.
+We love pull requests. And following these guidelines will make your pull request easier to merge.
 
-If you want to contribute but don’t know what to do, take a look at these two labels: [help wanted](https://github.com/styleguidist/react-styleguidist/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) and [good first issue](https://github.com/styleguidist/react-styleguidist/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22). Our [docs](https://github.com/styleguidist/react-styleguidist/tree/master/docs) and [site](https://github.com/styleguidist/site) are far from perfect too and would like to get some love.
+If you want to contribute but don’t know what to do, take a look at these two labels: [help wanted](https://github.com/styleguidist/react-styleguidist/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) and [good first issue](https://github.com/styleguidist/react-styleguidist/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22). Our [docs](https://github.com/styleguidist/react-styleguidist/tree/master/docs) and [site](https://github.com/styleguidist/site) are also far from perfect and could use a little love.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ If you want to contribute but don’t know what to do, take a look at these two 
 - Install [EditorConfig](http://editorconfig.org/) plugin for your code editor to make sure it uses correct settings.
 - Fork the repository and clone your fork.
 - Install dependencies: `npm install`.
-- Read the [developer guide](https://react-styleguidist.js.org/docs/development.html).
+- Read the [developer guide](https://react-styleguidist.js.org/docs/development).
 
 ## Development workflow
 

@@ -1,13 +1,6 @@
+<!-- Node.js API #api -->
+
 # Node.js API
-
-<!-- To update run: npx markdown-toc --maxdepth 2 -i docs/API.md -->
-
-<!-- toc -->
-
-- [Initialization](#initialization)
-- [Methods](#methods)
-
-<!-- tocstop -->
 
 ## Initialization
 
@@ -16,7 +9,7 @@ First, you need to initialize the API for your style guide config.
 Using a JavaScript object:
 
 ```javascript
-const styleguidist = require('react-styleguidist')
+import styleguidist from 'react-styleguidist'
 const styleguide = styleguidist({
   logger: {
     warn: console.warn,
@@ -34,7 +27,15 @@ const styleguide = styleguidist({
         },
         {
           test: /\.css$/,
-          loader: 'style-loader!css-loader?modules'
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true
+              }
+            }
+          ]
         }
       ]
     }
@@ -42,19 +43,19 @@ const styleguide = styleguidist({
 })
 ```
 
-**Note:** any output is disabled by default, you may need to define your own [logger](Configuration.md#logger).
+> **Info:** Any output is disabled by default, you may need to define your own [logger](Configuration.md#logger).
 
 Using a config file:
 
 ```javascript
-const styleguidist = require('react-styleguidist')
+import styleguidist from 'react-styleguidist'
 const styleguide = styleguidist(require('../styleguide.config.js'))
 ```
 
 Or auto searching a config file:
 
 ```javascript
-const styleguidist = require('react-styleguidist')
+import styleguidist from 'react-styleguidist'
 const styleguide = styleguidist()
 ```
 
@@ -79,7 +80,7 @@ See all available [config options](Configuration.md).
 #### Example
 
 ```javascript
-const styleguidist = require('react-styleguidist')
+import styleguidist from 'react-styleguidist'
 styleguidist(require('../styleguide.config.js')).build(
   (err, config) => {
     if (err) {
@@ -107,7 +108,7 @@ styleguidist(require('../styleguide.config.js')).build(
 #### Example
 
 ```javascript
-const styleguidist = require('react-styleguidist')
+import styleguidist from 'react-styleguidist'
 styleguidist(require('../styleguide.config.js')).server(
   (err, config) => {
     if (err) {
@@ -138,6 +139,8 @@ module.exports = [
   {
     // User webpack config
   },
-  require('react-styleguidist')().makeWebpackConfig()
+  // note that this is requiring rsg in commonjs mode
+  // it does not need to access .default
+  require('react-styleguidist').makeWebpackConfig()
 ]
 ```

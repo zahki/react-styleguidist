@@ -1,28 +1,14 @@
+<!-- Working with third-parties #thirdparties -->
+
 # Working with third-party libraries
-
-<!-- To update run: npx markdown-toc --maxdepth 3 -i docs/Thirdparties.md -->
-
-<!-- toc -->
-
-- [How Styleguidist works](#how-styleguidist-works)
-- [Using Styleguidist with other libraries](#using-styleguidist-with-other-libraries)
-  - [Redux](#redux)
-  - [Relay](#relay)
-  - [Styled-components](#styled-components)
-  - [Emotion](#emotion)
-  - [Fela](#fela)
-  - [CSS Modules with react-css-modules](#css-modules-with-react-css-modules)
-  - [Styletron](#styletron)
-
-<!-- tocstop -->
 
 ## How Styleguidist works
 
 Styleguidist _loads_ your components (see [Loading and exposing components](Components.md#loading-and-exposing-components) for more) but it uses [react-docgen](https://github.com/reactjs/react-docgen) to _generate documentation_ which may require changes in your code to work properly.
 
-React-docgen reads your components as static text files and looks for patterns like class or function declarations that looks like React components. It does not run any JavaScript code, so, if your component is dynamically generated, is wrapped in a higher-order component, or is split into several files, then react-docgen may not understand it.
+React-docgen reads your components as static text files and looks for patterns like class or function declarations that look like React components. It does not run any JavaScript code, so, if your component is dynamically generated, is wrapped in a higher-order component, or is split into several files, then react-docgen may not understand it.
 
-It supports components defined via `React.createClass`, ES6 classes and stateless functional components, with optional Flow and TypeScript (via [react-docgen-typescript](https://github.com/styleguidist/react-docgen-typescript)) type annotations.
+It supports components defined via `React.createClass`, ES6 classes and function components, with optional Flow and TypeScript type annotations.
 
 In many cases you may trick Styleguidist and react-docgen by exporting both components: an enhanced component as the default export and a base component as a named export:
 
@@ -40,7 +26,7 @@ export function Button({ color, size, children }) {
 export default CSSModules(Button, styles)
 ```
 
-Each example is rendered in an independent React root. You can control React context by defining a custom Wrapper component like this:
+Each example is rendered in an independent React root. You can control React Context by defining a custom Wrapper component like this:
 
 ```javascript
 // styleguide.config.js
@@ -53,6 +39,28 @@ module.exports = {
 ```
 
 Please see our [examples](https://github.com/styleguidist/react-styleguidist/tree/master/examples) and refer to [react-docgen](https://github.com/reactjs/react-docgen) documentation for more information about what types of syntax are supported.
+
+While Styleguidist supports TypeScript out of the box, thanks to `react-docgen`, this support is limited. Consider this example:
+
+```javascript
+import Button from 'antd/es/button'
+
+export default Button
+```
+
+Here we’re reexporting a third-party component from `node_modules`. Styleguidist won’t be able to render prop types of this component, unless we’re using `react-docgen-typescript`:
+
+1. Install [react-docgen-typescript](https://github.com/styleguidist/react-docgen-typescript).
+2. Create a `styleguide.config.js`, see [configuration](Configuration.md) reference.
+3. Update your `styleguide.config.js`:
+
+   ```javascript
+   module.exports = {
+     propsParser: require('react-docgen-typescript').withCustomConfig(
+       './tsconfig.json'
+     ).parse
+   }
+   ```
 
 ## Using Styleguidist with other libraries
 
@@ -163,10 +171,11 @@ _Based on @mikberg’s [blog post](https://medium.com/@mikaelberg/writing-simple
 
 ### Styled-components
 
-The recommended way of using [styled-components](https://www.styled-components.com/) is by using a special `@component` JSDoc annotation:
+To show PropTypes documentation for [styled-components](https://www.styled-components.com/), you need to add the `@component` JSDoc annotation to the component export:
 
 ```jsx
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const SalmonButton = styled.button`
@@ -175,11 +184,15 @@ const SalmonButton = styled.button`
   color: snow;
 `
 
+Button.propTypes = {
+  children: PropTypes.node
+}
+
 /** @component */
 export default SalmonButton
 ```
 
-**Warning:** object notation isn’t supported yet, use string literals instead:
+> **Caution:** Object notation isn’t supported yet, use string literals instead:
 
 ```diff
 - const Button = styled.button({
@@ -190,46 +203,55 @@ export default SalmonButton
 + `
 ```
 
+> **Caution:** Other use case for calling the `styled` factory as a function, like styled-system, aren’t supported too:
+
+```diff
+- const Input = styled.input(
+-  css({
+- 		boxSizing: 'border-box',
+-     // ...
+- 	})
+- );
+```
+
 #### Adding styled-components `ThemeProvider`
 
 If your styled-components require a theme to render properly, add a `ThemeProvider` to your style guide.
 
-First, create your `Wrapper` component. For this example we’ll put it in the `styleguide/` directory, but you can add it anywhere you want.
+First, create a `Provider` component:
 
 ```jsx
-// styleguide/ThemeWrapper.js
-import React, { Component } from 'react'
+// src/Provider.js
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import theme from 'where/your/theme/lives'
+import theme from './theme'
 
-export default class ThemeWrapper extends Component {
-  render() {
-    return (
-      <ThemeProvider theme={theme}>
-        {this.props.children}
-      </ThemeProvider>
-    )
-  }
+export default function Provider({ children }) {
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }
 ```
 
-Next, add `ThemeWrapper` to your `styleguide.config.js`.
+Next, add `Provider` to your `styleguide.config.js`:
 
 ```javascript
 // styleguide.config.js
 const path = require('path')
 module.exports = {
   styleguideComponents: {
-    Wrapper: path.join(__dirname, 'styleguide/ThemeWrapper')
+    Wrapper: path.join(__dirname, 'src/Provider.js')
   }
 }
 ```
 
-This will automatically apply your theme to your styled-components. When you fire up the style guide, `npx styleguidist server`, you should see your components render as expected.
+This will automatically apply your theme to your styled-components. When you open the style guide by running `npx styleguidist server`, you should see your components render as expected.
 
 ### Emotion
 
 The usage is similar to [styled-components](#styled-components).
+
+### Theme UI
+
+The usage is similar to [Adding styled-components `ThemeProvider`](#adding-styled-components-themeprovider).
 
 ### Fela
 

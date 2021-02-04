@@ -4,27 +4,27 @@
 
 **Isolated React component development environment with a living style guide**
 
-[![Build Status](https://travis-ci.org/styleguidist/react-styleguidist.svg)](https://travis-ci.org/styleguidist/react-styleguidist) [![npm](https://img.shields.io/npm/v/react-styleguidist.svg)](https://www.npmjs.com/package/react-styleguidist) [![Join the chat at https://gitter.im/styleguidist/styleguidist](https://badges.gitter.im/styleguidist/styleguidist.svg)](https://gitter.im/styleguidist/styleguidist?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Codecov](https://codecov.io/gh/styleguidist/react-styleguidist/branch/master/graph/badge.svg)](https://codecov.io/gh/styleguidist/react-styleguidist) [![Open Source Helpers](https://www.codetriage.com/styleguidist/react-styleguidist/badges/users.svg)](https://www.codetriage.com/styleguidist/react-styleguidist)
+ [![npm](https://img.shields.io/npm/v/react-styleguidist.svg)](https://www.npmjs.com/package/react-styleguidist) [![CI status](https://github.com/styleguidist/react-styleguidist/workflows/CI/badge.svg)](https://github.com/styleguidist/react-styleguidist.git/actions) [![Codecov](https://codecov.io/gh/styleguidist/react-styleguidist/branch/master/graph/badge.svg)](https://codecov.io/gh/styleguidist/react-styleguidist) [![Join the chat at https://gitter.im/styleguidist/styleguidist](https://badges.gitter.im/styleguidist/styleguidist.svg)](https://gitter.im/styleguidist/styleguidist?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Open Source Helpers](https://www.codetriage.com/styleguidist/react-styleguidist/badges/users.svg)](https://www.codetriage.com/styleguidist/react-styleguidist)
 
 </div>
 
 React Styleguidist is a component development environment with hot reloaded dev server and a living style guide that you can share with your team. It lists component `propTypes` and shows live, editable usage examples based on Markdown files. Check out [**the demo style guide**](https://react-styleguidist.js.org/examples/basic/).
 
-![](https://d3vv6lp55qjaqc.cloudfront.net/items/271B372x102S0c052i3F/react-styleguidist7.gif)
+![React Styleguidist in action](https://user-images.githubusercontent.com/1703219/74945569-51c6ad00-543b-11ea-8351-f4d86860893a.gif)
 
 ## Usage
 
-- **[Getting Started](https://react-styleguidist.js.org/docs/getting-started.html): install and run Styleguidist**
-- [Documenting components](https://react-styleguidist.js.org/docs/documenting.html): how to write documentation
-- [Locating components](https://react-styleguidist.js.org/docs/components.html): point Styleguidist to your React components
-- [Configuring webpack](https://react-styleguidist.js.org/docs/webpack.html): tell Styleguidist how to load your code
-- [Cookbook](https://react-styleguidist.js.org/docs/cookbook.html): how to solve common tasks with Styleguidist
+- **[Getting Started](https://react-styleguidist.js.org/docs/getting-started): install and run Styleguidist**
+- [Documenting components](https://react-styleguidist.js.org/docs/documenting): how to write documentation
+- [Locating components](https://react-styleguidist.js.org/docs/components): point Styleguidist to your React components
+- [Configuring webpack](https://react-styleguidist.js.org/docs/webpack): tell Styleguidist how to load your code
+- [Cookbook](https://react-styleguidist.js.org/docs/cookbook): how to solve common tasks with Styleguidist
 
 ## Advanced documentation
 
-- [Configuration](https://react-styleguidist.js.org/docs/configuration.html)
-- [CLI commands and options](https://react-styleguidist.js.org/docs/cli.html)
-- [Node.js API](https://react-styleguidist.js.org/docs/api.html)
+- [Configuration](https://react-styleguidist.js.org/docs/configuration)
+- [CLI commands and options](https://react-styleguidist.js.org/docs/cli)
+- [Node.js API](https://react-styleguidist.js.org/docs/api)
 
 ## Examples
 
@@ -48,9 +48,7 @@ Real projects using React Styleguidist:
 
 ## Integration with other tools
 
-- Create React App — just works, see the [Getting Started](https://react-styleguidist.js.org/docs/getting-started.html) guide!
-- Create React App + TypeScript, see [Configuring webpack](https://react-styleguidist.js.org/docs/webpack.html)
-- TypeScript, see [react-docgen-typescript](https://github.com/styleguidist/react-docgen-typescript)
+- Create React App — supported out of the box, see the [Getting Started](https://react-styleguidist.js.org/docs/getting-started) guide
 - Vue, see [Vue Styleguidist](https://github.com/vue-styleguidist/vue-styleguidist)
 
 ## Third-party tools
@@ -72,7 +70,7 @@ The change log can be found on the [Releases page](https://github.com/styleguidi
 
 ## Contributing
 
-Everyone is welcome to contribute. Please take a moment to read the [contributing guidelines](.github/Contributing.md) and the [developer guide](https://react-styleguidist.js.org/docs/development.html).
+Everyone is welcome to contribute. Please take a moment to read the [contributing guidelines](.github/Contributing.md) and the [developer guide](https://react-styleguidist.js.org/docs/development).
 
 ## Sponsoring
 
@@ -143,6 +141,8 @@ Everyone is welcome to contribute. Please take a moment to read the [contributin
 <a href="https://opencollective.com/styleguidist/backer/27/website" target="_blank"><img src="https://opencollective.com/styleguidist/backer/27/avatar.svg"></a>
 <a href="https://opencollective.com/styleguidist/backer/28/website" target="_blank"><img src="https://opencollective.com/styleguidist/backer/28/avatar.svg"></a>
 <a href="https://opencollective.com/styleguidist/backer/29/website" target="_blank"><img src="https://opencollective.com/styleguidist/backer/29/avatar.svg"></a>
+
+<a href="https://www.buymeacoffee.com/sapegin" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/lato-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
 
 ## Authors and license
 

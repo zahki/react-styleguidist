@@ -1,15 +1,6 @@
+<!-- Locating components #components -->
+
 # Locating your components and organizing your style guide
-
-<!-- To update run: npx markdown-toc --maxdepth 2 -i docs/Components.md -->
-
-<!-- toc -->
-
-- [Finding components](#finding-components)
-- [Loading and exposing components](#loading-and-exposing-components)
-- [Sections](#sections)
-- [Limitations](#limitations)
-
-<!-- tocstop -->
 
 ## Finding components
 
@@ -36,11 +27,11 @@ module.exports = {
 }
 ```
 
-> **Note:** All paths are relative to the config folder.
+> **Info:** All paths are relative to the config folder.
 
-> **Note:** Use [ignore](Configuration.md#ignore) option to exclude some files from the style guide.
+> **Tip:** Use [ignore](Configuration.md#ignore) option to exclude some files from the style guide.
 
-> **Note:** Use [getComponentPathLine](Configuration.md#getcomponentpathline) option to change a path you see below a component name.
+> **Tip:** Use [getComponentPathLine](Configuration.md#getcomponentpathline) option to change the path you see below a component name.
 
 ## Loading and exposing components
 
@@ -52,13 +43,13 @@ It will try to use the `displayName` of your component as the identifier. If it 
 
 In each of the following cases, the global identifier will be `Component`.
 
-| Path                | Code                                                                                                                                   | Styleguidist understands   |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| /whatever.js        | `export default function Component() { ... }`                                                                                          | displayName                |
-| /whatever.js        | `export default function SomeName() { ... }`<br>`SomeName.displayName = 'Component';`                                                  | displayName                |
-| /whatever.js        | `export default function Component() { ... }`<br>`Component.displayName = dynamicNamer();`                                             | displayName at declaration |
-| /component.js       | `const name = 'SomeName';`<br>`const componentMap = {`<br>`[name]: function() { ... }`<br>`};`<br>`export default componentMap[name];` | Filename                   |
-| /component/index.js | `const name = 'SomeName';`<br>`const componentMap = {`<br>`[name]: function() { ... }`<br>`};`<br>`export default componentMap[name];` | Folder name                |
+| Path | Code | Styleguidist understands |
+| --- | --- | --- |
+| /whatever.js | `export default function Component() { ... }` | displayName |
+| /whatever.js | `export default function SomeName() { ... }`<br>`SomeName.displayName = 'Component';` | displayName |
+| /whatever.js | `export default function Component() { ... }`<br>`Component.displayName = dynamicNamer();` | displayName at declaration |
+| /component.js | `const name = 'SomeName';`<br>`const componentMap = {`<br>`[name]: function() { ... }`<br>`};`<br>`export default componentMap[name];` | Filename |
+| /component/index.js | `const name = 'SomeName';`<br>`const componentMap = {`<br>`[name]: function() { ... }`<br>`};`<br>`export default componentMap[name];` | Folder name |
 
 ### Default vs named exports
 
@@ -96,7 +87,7 @@ export function Component() { ... }
 // will be exposed globally as Component
 ```
 
-**Warning:** If you export several React components as named exports from a single module, Styleguidist is likely to behave unreliably. If it cannot understand which named export to expose, you may not be able to access that export.
+> **Caution:** If you export several React components as named exports from a single module, Styleguidist is likely to behave unreliably. If it cannot understand which named export to expose, you may not be able to access that export.
 
 ## Sections
 
@@ -115,6 +106,7 @@ Each section consists of (all fields are optional):
 - `ignore` — string/array of globs that should not be included in the section.
 - `href` - an URL to navigate to instead of navigating to the section content
 - `external` - if set, the link will open in a new window
+- `expand` - Determines if the section should be expanded by default even when `tocMode` is set to `collapse` in general settings
 
 Configuring a style guide with textual documentation section and a list of components would look like:
 

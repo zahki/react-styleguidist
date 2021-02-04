@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
 	title: 'React Style Guide Example',
 	pagePerSection: true,
+	// tocMode: 'collapse',
 	sections: [
 		{
 			name: 'Documentation',
@@ -39,13 +40,22 @@ module.exports = {
 			sections: [
 				{
 					name: 'Buttons',
-					components: () => ['./src/components/Button/Button.js'],
+					components: () => [
+						'./src/components/Button/Button.js',
+						'./src/components/ThemeButton/ThemeButton.js',
+					],
 					exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
 					usageMode: 'hide', // 'hide' | 'collapse' | 'expand'
 				},
 				{
 					name: 'Fields',
 					components: () => ['./src/components/Placeholder/Placeholder.js'],
+					exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
+					usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
+				},
+				{
+					name: 'Labels',
+					components: () => ['./src/components/MyLabel/Label.js'],
 					exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
 					usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
 				},
@@ -60,7 +70,7 @@ module.exports = {
 		},
 	],
 	require: [path.join(__dirname, 'src/styles.css')],
-	webpackConfig: env => ({
+	webpackConfig: (env) => ({
 		module: {
 			rules: [
 				{
@@ -70,7 +80,7 @@ module.exports = {
 				},
 				{
 					test: /\.css$/,
-					loader: 'style-loader!css-loader',
+					use: ['style-loader', 'css-loader'],
 				},
 			],
 		},
@@ -83,8 +93,8 @@ module.exports = {
 			env === 'development'
 				? false
 				: {
-						maxAssetSize: 850000, // bytes
-						maxEntrypointSize: 850000, // bytes
+						maxAssetSize: 1200000, // bytes
+						maxEntrypointSize: 1200000, // bytes
 						hints: 'error',
 				  },
 	}),
